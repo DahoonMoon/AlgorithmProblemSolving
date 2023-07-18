@@ -10,7 +10,7 @@ import java.util.Map;
 //		Only one valid answer exists.
 //      시간복잡도 O(n^2) 미만
 
-public class Two_Sum {
+public class Easy_1_Two_Sum {
 	public int[] twoSum(int[] nums, int target) {
 		Map<Integer, Integer> map = new HashMap<>();
 
@@ -26,7 +26,7 @@ public class Two_Sum {
 	}
 
 	public static void main(String[] args) {
-		Two_Sum solution = new Two_Sum();
+		Easy_1_Two_Sum solution = new Easy_1_Two_Sum();
 
 		int[] nums = {3, 3};
 		int target = 6;
