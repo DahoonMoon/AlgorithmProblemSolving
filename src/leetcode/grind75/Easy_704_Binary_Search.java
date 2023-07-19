@@ -14,29 +14,23 @@ public class Easy_704_Binary_Search {
 	public static int search(int[] nums, int target) {
 
 		int length = nums.length;
-
 		if (length == 0) {
-			return 0;
-		}
-		if (length == 1) {
-			if (nums[0] == target) {
-				return 0;}
-		}
-
-		if (nums[length - 1] < target || nums[0] > target) {
 			return -1;
 		}
 
-		if (nums[length / 2] == target) {
+		int[] low = Arrays.copyOfRange(nums, 0, length/2);
+		int mid = nums[length / 2];
+		int[] high = Arrays.copyOfRange(nums, length/2 + 1, length);
+
+		if (mid == target) {
 			return length/2;
-		} else if (nums[length / 2] > target) {
-
-			return search(Arrays.copyOfRange(nums, 0, length/2 ), target);
+		} else if (mid > target) {
+			return search(low, target);
 		} else {
-
-			int med = search(Arrays.copyOfRange(nums,  length/2 +1, length), target);
-
-			return length/2 + 1 + med;
+			if (search(high, target) == -1) {
+				return -1;
+			}
+			return length/2 + 1 + search(high, target);
 		}
 
 
